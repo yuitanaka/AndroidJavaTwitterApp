@@ -1,21 +1,19 @@
 package com.example.yui.mytweeterapplication;
 
+import java.io.Serializable;
+
 /**
  * Created by yui on 西暦18/12/25.
  */
 
-public class TweetListItem {
-    private long id;
+public class TweetListItem implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String userName;
     private String tweet;
     private String userImage;
 
-    public void setId(long id){
-        this.id = id;
-    }
-
-    public long getId(){
-        return this.id;
+    public  long getId(){
+        return serialVersionUID;
     }
 
     public void setUserName(String userName){
