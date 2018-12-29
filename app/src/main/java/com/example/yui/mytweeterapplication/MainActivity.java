@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -45,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplication(), TweetDetailActivity.class);
                 // putExtraで自作クラスを受け渡す場合は SeriallizableかParcelableクラスを実装しなければならない。
                 intent.putExtra("TWEET_DATA", tweetList.get(position));
+                startActivity(intent);
+            }
+        });
+
+        // 新規ツイートボタン処理
+        Button newTweetButton = (Button)findViewById(R.id.new_tweet_button);
+        newTweetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), NewTweetActivity.class);
                 startActivity(intent);
             }
         });
