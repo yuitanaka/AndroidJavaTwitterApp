@@ -26,6 +26,10 @@ public class TweetAdapter extends BaseAdapter {
 
     }
 
+    public ArrayList<TweetListItem> getTweetList(){
+        return tweetList;
+    }
+
     public void setTweetList(ArrayList<TweetListItem> tweetList){
         this.tweetList = tweetList;
     }

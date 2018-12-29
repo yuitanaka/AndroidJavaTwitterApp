@@ -14,31 +14,20 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
+
     ArrayList<TweetListItem> tweetList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listView = findViewById(R.id.tweet_list);
 
-        // これ何
-        TweetAdapter tweetAdapter = new TweetAdapter(MainActivity.this);
-
-        tweetAdapter.setTweetList(tweetList);
-
         // Tweetデータ追加処理
-        TweetListItem tweet = new TweetListItem();
-        tweet.setUserName("yui");
-        tweet.setTweet("My Tweeter!! Good Job!!");
-        tweetList.add(tweet);
-        TweetListItem tweet2 = new TweetListItem();
-        tweet2.setUserName("yui");
-        tweet2.setTweet("My Second Tweet!! Marveras!!");
-        tweetList.add(tweet2);
-        tweetAdapter.notifyDataSetChanged();
-        listView.setAdapter(tweetAdapter);
+        TweetListItem tweetItem = (TweetListItem) getIntent().getSerializableExtra("TWEET_DATA");
+        if(tweetItem != null){
+            updateTweetList(tweetItem);
+        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -60,5 +49,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void updateTweetList(TweetListItem item){
+        // これ何
+        TweetAdapter tweetAdapter = new TweetAdapter(MainActivity.this);
+        tweetAdapter.setTweetList(tweetList);
+
+        tweetList.add(item);
+
+        tweetAdapter.notifyDataSetChanged();
+        listView.setAdapter(tweetAdapter);
     }
 }

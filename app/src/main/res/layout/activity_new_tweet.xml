@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ツイート"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 />
         </RelativeLayout>
         <RelativeLayout
@@ -36,10 +36,10 @@
                 android:id="@+id/tweet_context"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_toRightOf="@id/user_image"
+                android:layout_toEndOf="@id/user_image"
                 android:inputType="text"
-                android:hint="ここに文字を入力してください。"
-                android:gravity="top|left"
+                android:hint="いまどうしてる？"
+                android:gravity="top|start"
                 />
 
         </RelativeLayout>
